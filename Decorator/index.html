@@ -7,6 +7,18 @@
     <script type="text/javascript" src="../tartJS/third_party/goog/goog/base.js"></script>
     <script type="text/javascript" src="../tartJS/tart/deps.js"></script>
     <script type="text/javascript">
+
+        /**
+         * @interface
+         */
+        var CoffeeInterface = function () {};
+        CoffeeInterface.prototype.getPrice = function () {};
+        CoffeeInterface.prototype.getIngredients = function () {};
+
+        /**
+         * @implements {CoffeeInterface}
+         */
+
         var Coffee = function () {
 
             this.price = 3;
