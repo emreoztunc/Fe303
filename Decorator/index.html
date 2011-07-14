@@ -86,6 +86,14 @@
         myCoffee = new CaramelAromaDecorator (myCoffee);
         console.log(myCoffee.getPrice());
         console.log(myCoffee.getIngredients());
+        myCoffee.getPrice();
+        myCoffee.getIngredients();
+
+        var latte = new Coffee();
+        latte = new IceDecorator (latte);
+        latte = new CaramelAromaDecorator(latte);
+        console.log(latte.getPrice());
+        console.log(latte.getIngredients());
 
     </script>
 </head>
