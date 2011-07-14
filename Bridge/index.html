@@ -7,8 +7,18 @@
     <script type="text/javascript" src="../tartJS/third_party/goog/goog/base.js"></script>
     <script type="text/javascript" src="../tartJS/tart/deps.js"></script>
     <script type="text/javascript">
-        var $sayHelloToEmre, $sayHelloToMahmut, sayHello, sayHelloDomBridge;
+        var $sayHelloToEmre, $sayHelloToMahmut, sayHello, sayHelloDomBridge, murat;
         $(function () {
+            var Person = function (name) {
+                this.id = name;
+
+            };
+
+            murat = new Person ("Murat");
+
+
+
+
             $sayHelloToEmre = $("<div id='emre' >Say hello to Emre</div>");
             $sayHelloToMahmut = $("<div id='mahmut' >Say hello to Mahmut</div>");
 
@@ -21,6 +31,14 @@
              */
             sayHelloDomBridge = function () {
                 sayHello($(this).attr('id'));
+            };
+
+            /**
+             *
+             * @param {Person} person takes a Person object and writes it's id on the console
+             */
+            sayHelloPersonBridge = function (person) {
+                sayHello(person.id);
             };
 
             $("body").append($sayHelloToEmre);
