@@ -8,7 +8,10 @@
     <script type="text/javascript" src="../tartJS/tart/deps.js"></script>
     <script type="text/javascript">
         var macbook = {};
-        macbook.MacBook = function () {};
+        macbook.MacBook = function () {
+            console.log("MacBook manufactured");
+
+        };
 
         macbook.MacBookAir = function () {
             console.log("MacBookAir manufactured");
@@ -18,8 +21,16 @@
             console.log("MacBookPro manufactured");
         };
 
+        /**
+         * @extends {FactoryAbstract}
+         */
         var MacbookFactory = function () {
-            console.log("MacBook manufactured");
+            goog.base(this);
+        };
+        goog.inherits(MacbookFactory, FactoryAbstract);
+
+        var FactoryAbstract = function () {
+
         };
 
         MacbookFactory.prototype.createMacbook = function (type) {
