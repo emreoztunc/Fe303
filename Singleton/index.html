@@ -6,7 +6,19 @@
     <script type="text/javascript" src="../tartJS/third_party/goog/goog/base.js"></script>
     <script type="text/javascript" src="../tartJS/tart/deps.js"></script>
     <script type="text/javascript">
-        
+        var Singleton = {};
+
+        Singleton.init = function () {
+            Singleton.data = [];
+            for (var i = 0 ; i < 10; i++) {
+                Singleton.data.push("item " + i);
+            }
+            console.log("Scope " + this);
+        };
+
+        Singleton.log = function () {
+            console.log(Singleton.data);
+        };
     </script>
 </head>
 <body>
