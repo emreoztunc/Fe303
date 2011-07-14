@@ -47,6 +47,35 @@
         IceDecorator.prototype.getIngredients = function (){
             return this.coffee.getIngredients() + " ice ";
         };
+        /**
+         * @implements {CoffeeInterface}
+         */
+        MilkDecorator = function (coffee) {
+                this.coffee = coffee;
+        };
+
+        MilkDecorator.prototype.getPrice = function (){
+            return this.coffee.getPrice() + 3;
+        };
+
+        MilkDecorator.prototype.getIngredients = function (){
+            return this.coffee.getIngredients() + " milk ";
+        };
+
+        /**
+         * @implements {CoffeeInterface}
+         */
+        CaramelAromaDecorator = function (coffee) {
+                this.coffee = coffee;
+        };
+
+        CaramelAromaDecorator.prototype.getPrice = function (){
+            return this.coffee.getPrice() + 10;
+        };
+
+        CaramelAromaDecorator.prototype.getIngredients = function (){
+            return this.coffee.getIngredients() + " caramel aroma ";
+        };
 
     </script>
 </head>
