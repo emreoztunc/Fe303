@@ -2,7 +2,39 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+    <title>Composite Design Pattern</title>
+    <script type="text/javascript" src="../tartJS/third_party/jquery/jquery-1.5.2.js"></script>
+    <script type="text/javascript" src="../tartJS/third_party/goog/goog/base.js"></script>
+    <script type="text/javascript" src="../tartJS/tart/deps.js"></script>
+    <script type="text/javascript">
+        var Person = function (name) {
+            this.name = name;
+            this.children = [];
+        };
 
+
+
+
+        Person.prototype.addChild = function (person) {
+            this.children.push(person);
+        };
+
+        var emre = new Person("emre");
+        var deniz = new Person("deniz");
+        var dido = new Person("dido");
+        var meltem = new Person("meltem");
+        var ceren = new Person("ceren");
+        var mert = new Person("mert");
+
+        emre.addChild(deniz);
+        emre.addChild(meltem);
+        deniz.addChild(ceren);
+        emre.addChild(mert);
+        mert.addChild(dido);
+
+        //emre.visitNeighbors();
+
+    </script>
 </head>
 <body>
 
