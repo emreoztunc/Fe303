@@ -1,0 +1,7 @@
+*.swp
+*.swo
+.idea
+*.DS_Store
+*.pyc
+compiled/*
+/atlassian-ide-plugin.xml
