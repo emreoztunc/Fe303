@@ -8,19 +8,38 @@
     <script type="text/javascript" src="../tartJS/tart/deps.js"></script>
     <script type="text/javascript">
         var macbook = {};
-        macbook.MacBook = function () {
-
-        };
+        macbook.MacBook = function () {};
 
         macbook.MacBookAir = function () {
-
+            console.log("MacBookAir manufactured");
         };
 
         macbook.MacBookPro = function () {
+            console.log("MacBookPro manufactured");
+        };
+
+        var MacbookFactory = function () {
+            console.log("MacBook manufactured");
+        };
+
+        MacbookFactory.prototype.createMacbook = function (type) {
+            switch (type) {
+                case "mbp":
+                    return new macbook.MacBookPro();
+                case "air":
+                    return macbook.MacBookAir();
+                default :
+                    return macbook.MacBook();
+            }
 
         };
 
-        var myMBP = new macbook.MacBookPro();
+        var appFac = new MacbookFactory;
+
+        var myMBP = appFac.createMacbook("mbp");
+        var myMBA = appFac.createMacbook("air");
+        var myMB = appFac.createMacbook();
+
     </script>
 </head>
 <body>
