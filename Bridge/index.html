@@ -7,20 +7,27 @@
     <script type="text/javascript" src="../tartJS/third_party/goog/goog/base.js"></script>
     <script type="text/javascript" src="../tartJS/tart/deps.js"></script>
     <script type="text/javascript">
-        var $sayHelloToEmre, $sayHelloToMahmut, sayHello;
+        var $sayHelloToEmre, $sayHelloToMahmut, sayHello, sayHelloDomBridge;
         $(function () {
             $sayHelloToEmre = $("<div id='emre' >Say hello to Emre</div>");
             $sayHelloToMahmut = $("<div id='mahmut' >Say hello to Mahmut</div>");
 
-            sayHello = function () {
-                console.log("Merhaba " + $(this).attr("id"));
+            sayHello = function (name) {
+                console.log("Merhaba " + name);
+            };
+
+            /*
+             * @this {HtmlElement}
+             */
+            sayHelloDomBridge = function () {
+                sayHello($(this).attr('id'));
             };
 
             $("body").append($sayHelloToEmre);
             $("body").append($sayHelloToMahmut);
 
-            $sayHelloToMahmut.click(sayHello);
-            $sayHelloToEmre.click(sayHello);
+            $sayHelloToMahmut.click(sayHelloDomBridge);
+            $sayHelloToEmre.click(sayHelloDomBridge);
 
         });
 
