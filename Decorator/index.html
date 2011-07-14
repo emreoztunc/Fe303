@@ -76,6 +76,16 @@
         CaramelAromaDecorator.prototype.getIngredients = function (){
             return this.coffee.getIngredients() + " caramel aroma ";
         };
+        var myCoffee = new Coffee();
+        myCoffee = new IceDecorator (myCoffee);
+        console.log(myCoffee.getPrice());
+        console.log(myCoffee.getIngredients());
+        myCoffee = new MilkDecorator (myCoffee);
+        console.log(myCoffee.getPrice());
+        console.log(myCoffee.getIngredients());
+        myCoffee = new CaramelAromaDecorator (myCoffee);
+        console.log(myCoffee.getPrice());
+        console.log(myCoffee.getIngredients());
 
     </script>
 </head>
