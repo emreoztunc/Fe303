@@ -3,6 +3,25 @@
 <html>
 <head>
     <title></title>
+    <script type="text/javascript" src="../tartJS/third_party/jquery/jquery-1.5.2.js"></script>
+    <script type="text/javascript" src="../tartJS/third_party/goog/goog/base.js"></script>
+    <script type="text/javascript" src="../tartJS/tart/deps.js"></script>
+    <script type="text/javascript">
+        var Coffee = function () {
+
+            this.price = 3;
+            this.ingredients = "base coffee";
+        };
+
+        Coffee.prototype.getPrice = function () {
+            return this.price;
+        };
+
+        Coffee.prototype.getIngredients = function () {
+            return this.ingredients;
+        };
+
+    </script>
 </head>
 <body>
 
