@@ -8,9 +8,17 @@
     <script type="text/javascript" src="../tartJS/tart/deps.js"></script>
     <script type="text/javascript">
         $(function () {
-            var $sayHelloToEmre = $("<div id='emre'>Say hello to Emre</div>");
+            var $sayHelloToEmre = $("<div id='emre' >Say hello to Emre</div>");
+            var $sayHelloToMahmut = $("<div id='mahmut' >Say hello to Mahmut</div>");
+
             $("body").append($sayHelloToEmre);
+            $("body").append($sayHelloToMahmut);
+
             $sayHelloToEmre.click(function (){
+
+                console.log("Hello " + $(this).attr("id"));
+            });
+            $sayHelloToMahmut.click(function (){
 
                 console.log("Hello " + $(this).attr("id"));
             });
