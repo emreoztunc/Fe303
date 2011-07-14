@@ -13,7 +13,12 @@
         };
 
 
-
+        Person.prototype.visitNeighbors = function () {
+            console.log("selamlar ben " + this.name);
+            for(var i = 0, length = this.children.length; i<length; i++) {
+                this.children[i].visitNeighbors();
+            }
+        };
 
         Person.prototype.addChild = function (person) {
             this.children.push(person);
@@ -32,7 +37,7 @@
         emre.addChild(mert);
         mert.addChild(dido);
 
-        //emre.visitNeighbors();
+        emre.visitNeighbors();
 
     </script>
 </head>
