@@ -7,39 +7,50 @@
     <script type="text/javascript" src="../tartJS/third_party/goog/goog/base.js"></script>
     <script type="text/javascript" src="../tartJS/tart/deps.js"></script>
     <script type="text/javascript">
-        var Person = function (name) {
-            this.name = name;
-            this.children = [];
-        };
+    var Person = function (name) {
+        this.name = name;
+        this.children = [];
+    };
+    Person.prototype.visitNeighbors = function () {
+        console.log("selamlar ben " + this.name);
+        for(var i = 0, length = this.children.length; i<length; i++) {
+            this.children[i].visitNeighbors();
+        }
+    };
 
 
-        Person.prototype.visitNeighbors = function () {
-            console.log("selamlar ben " + this.name);
-            for(var i = 0, length = this.children.length; i<length; i++) {
-                this.children[i].visitNeighbors();
-            }
-        };
 
-        Person.prototype.addChild = function (person) {
-            this.children.push(person);
-        };
+    Person.prototype.addChild = function (person) {
 
-        var emre = new Person("emre");
-        var deniz = new Person("deniz");
-        var dido = new Person("dido");
-        var meltem = new Person("meltem");
-        var ceren = new Person("ceren");
-        var mert = new Person("mert");
+        for(var i = 0, length = person.children.length; i<length; i++) {
+            this.children[i].visitNeighbors();
+        this.children.push(person);
+        }
+    };
 
-        emre.addChild(deniz);
-        emre.addChild(meltem);
-        deniz.addChild(ceren);
-        emre.addChild(mert);
-        mert.addChild(dido);
+    Person.prototype.checkChild (person) {
+        for(var i = 0, length = person.children.length; i<length; i++) {
+            if (person.children[i] == this)
+            return false;
+        }
 
-        emre.visitNeighbors();
+        this.children.push(person);
+    };
 
-    </script>
+    var emre = new Person("emre");
+    var deniz = new Person("deniz");
+    var dido = new Person("dido");
+    var meltem = new Person("meltem");
+    var ceren = new Person("ceren");
+    var mert = new Person("mert");
+
+    emre.addChild(deniz);
+    emre.addChild(meltem);
+    deniz.addChild(ceren);
+    emre.addChild(mert);
+    mert.addChild(dido);
+
+    emre.visitNeighbors();
 </head>
 <body>
 
