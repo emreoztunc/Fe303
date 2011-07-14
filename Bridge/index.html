@@ -7,21 +7,21 @@
     <script type="text/javascript" src="../tartJS/third_party/goog/goog/base.js"></script>
     <script type="text/javascript" src="../tartJS/tart/deps.js"></script>
     <script type="text/javascript">
+        var $sayHelloToEmre, $sayHelloToMahmut, sayHello;
         $(function () {
-            var $sayHelloToEmre = $("<div id='emre' >Say hello to Emre</div>");
-            var $sayHelloToMahmut = $("<div id='mahmut' >Say hello to Mahmut</div>");
+            $sayHelloToEmre = $("<div id='emre' >Say hello to Emre</div>");
+            $sayHelloToMahmut = $("<div id='mahmut' >Say hello to Mahmut</div>");
+
+            sayHello = function () {
+                console.log("Merhaba " + $(this).attr("id"));
+            };
 
             $("body").append($sayHelloToEmre);
             $("body").append($sayHelloToMahmut);
 
-            $sayHelloToEmre.click(function (){
+            $sayHelloToMahmut.click(sayHello);
+            $sayHelloToEmre.click(sayHello);
 
-                console.log("Hello " + $(this).attr("id"));
-            });
-            $sayHelloToMahmut.click(function (){
-
-                console.log("Hello " + $(this).attr("id"));
-            });
         });
 
     </script>
