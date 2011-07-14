@@ -33,6 +33,21 @@
             return this.ingredients;
         };
 
+        /**
+         * @implements {CoffeeInterface}
+         */
+        IceDecorator = function (coffee) {
+            this.coffee = coffee;
+        };
+
+        IceDecorator.prototype.getPrice = function (){
+            return this.coffee.getPrice() + 1;
+        };
+
+        IceDecorator.prototype.getIngredients = function (){
+            return this.coffee.getIngredients() + " ice ";
+        };
+
     </script>
 </head>
 <body>
