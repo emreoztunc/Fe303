@@ -54,12 +54,11 @@
         };
 
         ClientIterator.prototype.next = function () {
-            if (this.nextClientNumber >= this.items.length){
-                return "exception";
+            if (this.items.length >= this.nextClientNumber  ){
+                return this.items[this.nextClientNumber++];
             }
             else {
-                this.nextClientNumber++;
-                return this.items[this.nextClientNumber];
+                console.log("musteri yok");
             }
         };
 
