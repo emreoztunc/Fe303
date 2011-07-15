@@ -76,6 +76,24 @@
         CaramelAromaDecorator.prototype.getIngredients = function (){
             return this.coffee.getIngredients() + " caramel aroma ";
         };
+
+        /**
+         * @implements {CoffeeInterface}
+         */
+        CinnamonDecorator = function (coffee) {
+                this.coffee = coffee;
+        };
+
+        CinnamonDecorator.prototype.getPrice = function (){
+            return this.coffee.getPrice() + 3;
+        };
+
+        CinnamonDecorator.prototype.getIngredients = function (){
+            return this.coffee.getIngredients() + " cinnamon powder ";
+        };
+
+
+
         var myCoffee = new Coffee();
         myCoffee = new IceDecorator (myCoffee);
         console.log(myCoffee.getPrice());
