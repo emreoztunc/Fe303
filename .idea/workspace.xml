@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ba7de4c3-69ef-41ff-bb46-d577a8e2a124" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tartJS/tools" afterPath="$PROJECT_DIR$/tartJS/tools" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fe303.iws" />
     <ignored path=".idea/workspace.xml" />
