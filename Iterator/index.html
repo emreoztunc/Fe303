@@ -101,14 +101,10 @@
         clientQueue.createIterator(tBank.clients);
         veznedaroglu.clientIterator = clientQueue;
 
-        veznedaroglu.processRequest();
-
-        
-        
-
-
-
-
+        console.log(clientQueue.items.length);
+        for(var i = 0; i<16; i++) {
+           veznedaroglu.processRequest();
+        }
 
     </script>
 
