@@ -8,6 +8,14 @@
     <script type="text/javascript" src="../tartJS/tart/deps.js"></script>
     <script type="text/javascript" src="../tartJS/tart/tart.js"></script>
     <script type="text/javascript">
+        var Bank = function () {
+            this.clients = [];
+        };
+
+        Bank.prototype.addClient = function (client) {
+            this.client.push(client);
+            console.log("client" + client.id + " added to array.");
+        };
 
     </script>
 
