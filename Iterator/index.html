@@ -48,7 +48,13 @@
         };
 
         ClientIterator.prototype.next = function () {
-
+            if (this.nextClientNumber >= this.items.length){
+                return "exception";
+            }
+            else {
+                this.nextClientNumber++;
+                return this.items[this.nextClientNumber];
+            }
         };
 
         ClientIterator.prototype.createIterator = function (clients){
