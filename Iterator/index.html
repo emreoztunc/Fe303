@@ -23,7 +23,12 @@
         };
 
         Teller.prototype.processRequest = function () {
-            
+            do {
+                var client = this.clientIterator.next();
+                console.log("this customer has " + client.getInvoice() + " in his/her account.")
+                console.log(client.getRequest());
+            } while (this.client != "exception")
+            console.log("there are no clients on the queue");
         };
 
         var Client = function (){
