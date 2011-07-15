@@ -99,6 +99,14 @@
         tBank.addClient(emrah);
 
         var veznedaroglu = new Teller();
+
+        var clientQueue = new ClientIterator();
+        clientQueue.createIterator(tBank.clients);
+        veznedaroglu.clientIterator = clientQueue;
+
+        veznedaroglu.processRequest();
+
+        
         
 
 
