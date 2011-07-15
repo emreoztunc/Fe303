@@ -45,7 +45,7 @@
         };
 
         IceDecorator.prototype.getIngredients = function (){
-            return this.coffee.getIngredients() + " ice ";
+            return this.coffee.getIngredients() + ", ice";
         };
         /**
          * @implements {CoffeeInterface}
@@ -59,7 +59,7 @@
         };
 
         MilkDecorator.prototype.getIngredients = function (){
-            return this.coffee.getIngredients() + " milk ";
+            return this.coffee.getIngredients() + ", milk";
         };
 
         /**
@@ -74,7 +74,7 @@
         };
 
         CaramelAromaDecorator.prototype.getIngredients = function (){
-            return this.coffee.getIngredients() + " caramel aroma ";
+            return this.coffee.getIngredients() + ", caramel aroma";
         };
 
         /**
@@ -89,8 +89,9 @@
         };
 
         CinnamonDecorator.prototype.getIngredients = function (){
-            return this.coffee.getIngredients() + " cinnamon powder ";
+            return this.coffee.getIngredients() + ", cinnamon powder";
         };
+
 
 
 
