@@ -24,8 +24,9 @@
         TextFromFile.prototype.getText = function(mockFile){
             var originalText    ;
             originalText = mockFile.process();
-            document.writeln("Data from user \"" + originalText.substring(0,6) + "\" is: " +
-                    originalText.substring(7,originalText.length-1)+ "<br/>");
+
+            document.writeln("Data from user \"" + originalText.substring(0, 6) + "\" is: " +
+                    originalText.substring(7, originalText.length-1)+ "<br/>");
         };
 
         /**
@@ -39,8 +40,8 @@
         TextFromWeb.prototype.getText = function(mockWeb){
             var originalText ;
             originalText = mockWeb.process();
-            document.writeln("Data from user \"" + originalText.substring(originalText.length-6,originalText.length)
-                    + "\" is: " + originalText.substring(0,originalText.length-6) + "<br/>");
+            document.writeln("Data from user \"" + originalText.substring(originalText.length-6, originalText.length)
+                    + "\" is: " + originalText.substring(0, originalText.length-6) + "<br/>");
         };
 
         /**
@@ -54,8 +55,8 @@
         TextFromMysql.prototype.getText = function(mockMysql){
             var originalText ;
             originalText = mockMysql.process();
-            document.writeln("Data from user \"" + originalText.substring(5,11) + "\" is: " +
-                    originalText.substring(11,originalText.length-8));
+            document.writeln("Data from user \"" + originalText.substring(5, 11) + "\" is: " +
+                    originalText.substring(11, originalText.length-8));
         };
 
         var MockFile = function(){
