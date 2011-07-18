@@ -99,10 +99,33 @@
             this.dataString = "";
         };
 
-        var mf = new MockFile();
-        var tff = new TextFromFile;
+        var myFile = new MockFile();
+        var fileReader = new TextFromFile;
 
-        tff.getText(mf);
+        var myWeb = new MockWeb();
+        var webReader = new TextFromWeb();
+
+        var mySql = new MockMysql();
+        var sqlReader = new TextFromMysql();
+
+        fileReader.getText(myFile);
+        console.log(" ");
+        console.log("Original Data: ");
+        console.log(myFile.process());
+        console.log(" ");
+
+        webReader.getText(myWeb);
+        console.log(" ");
+        console.log("Original Data: ");
+        console.log(myWeb.process());
+        console.log(" ");
+
+        sqlReader.getText(mySql);
+        console.log(" ");
+        console.log("Original Data: ");
+        console.log(mySql.process());
+        console.log(" ");
+
 
 
     </script>
