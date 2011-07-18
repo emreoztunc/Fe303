@@ -9,66 +9,106 @@
     <script type="text/javascript" src="../tartJS/tart/tart.js"></script>
     <script type="text/javascript">
 
+        var moneyArray = [245, 654, 121, 438, 240, 4323];
         /**
          *
          * @interface
          */
         var AtmCashUnitInterface = function () {};
         AtmCashUnitInterface.prototype.extractCash = function (){};
-        AtmCashUnitInterface.prototype.triggerNextUnit = function (){};
+        AtmCashUnitInterface.prototype.importCash = function (){};
 
-        /**
-         *
-         * @implements {AtmCashUnitInterface}
-         */
-        var Hundreds = function (){
+        var Atm = function () {
+        };
 
+        Atm.prototype.successor = null;
+
+        Atm.prototype.drawCash = function (amount) {
+            console.log("Verilecek para miktari: " + amount);
+            this.successor.extractCash(amount);
+        };
+
+        Atm.prototype.invoiceCash = function (amount) {
+            console.log("Alinacak para miktari: " + amount);
+            this.successor.importCash(amount);
         };
 
         /**
          *
          * @implements {AtmCashUnitInterface}
          */
-        var Fifties = function (){
+        var AtmCashUnit = function (cashAmountToHandle){
+            this.cashAmountToHandle = cashAmountToHandle;
+        };
+
+        AtmCashUnit.prototype.successor = null;
+        //AtmCashUnit.prototype.count = 0;
+        //AtmCashUnit.prototype.remainder = 0;
+
+        AtmCashUnit.prototype.extractCash = function (amount) {
+            this.remainder = amount % this.cashAmountToHandle;
+            this.count = amount - this.remainder;
+            this.count = this.count/this.cashAmountToHandle;
+
+            if(this.count !=0){
+                console.log("Musteriye " + this.count + " adet " + this.cashAmountToHandle + " liralik banknot verildi.");
+                if(this.remainder!=0){
+                    console.log(this.remainder + " lira kaldi");
+                }
+                this.count = 0;
+            }
+
+            if((this.successor != null) && (this.remainder !=0)) {
+                this.successor.extractCash(this.remainder);
+            }
+      };
+
+        AtmCashUnit.prototype.importCash= function(amount) {
+            this.count = (amount % this.cashAmountToHandle);
+            this.remainder = amount;
+            if((this.count == 0) && (this.successor != null)) {
+                this.successor.importCash(this.remainder);
+            }
+
+            else if((this.count!=0) && (this.successor != null)) {
+                console.log("musteriden " + this.count + " adet " + this.cashAmountToHandle + " liralik banknot alindi.");
+                this.remainder = amount - ( this.count * this.cashAmountToHandle);
+                this.successor.importCash(this.remainder);
+            }
+
+            else if ((this.count!= 0) && (this.successor == null)){
+                console.log("Para alacak yok. " + this.remainder +" kadar para verilemedi.");
+            }
 
         };
 
-        /**
-         *
-         * @implements {AtmCashUnitInterface}
-         */
-        var Twenties = function (){
+        var Bankamatik = new Atm ();
 
-        };
+        var Yuzluk = new AtmCashUnit(100);
+        var Ellilik = new AtmCashUnit(50);
+        var Yirmilik = new AtmCashUnit(20);
+        var Onluk = new AtmCashUnit(10);
+        var Beslik = new AtmCashUnit(5);
+        var Birlik = new AtmCashUnit(1);
 
-        /**
-         *
-         * @implements {AtmCashUnitInterface}
-         */
-        var Tens = function (){
+        Bankamatik.successor = Yuzluk;
+        Yuzluk.successor = Ellilik;
+        Ellilik.successor = Yirmilik;
+        Yirmilik.successor = Onluk;
+        Onluk.successor = Beslik;
+        Beslik.successor = Birlik;
 
-        };
+        for (var i = 0, length = moneyArray.length; i<length; i++) {
+            Bankamatik.drawCash(moneyArray[i]);
+        }
 
-        /**
-         *
-         * @implements {AtmCashUnitInterface}
-         */
-        var Fives = function (){
+        Bankamatik.drawCash(2657675854);
 
-        };
-
-
-        /**
-         *
-         * @implements {AtmCashUnitInterface}
-         */
-        var Ones = function (){
-
-        };
 
     </script>
 </head>
 <body>
 
 </body>
+
 </html>
