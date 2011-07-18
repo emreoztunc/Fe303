@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Chain of Responsibility</title>
+    <script type="text/javascript" src="../tartJS/third_party/jquery/jquery-1.5.2.js"></script>
+    <script type="text/javascript" src="../tartJS/third_party/goog/goog/base.js"></script>
+    <script type="text/javascript" src="../tartJS/tart/deps.js"></script>
+    <script type="text/javascript" src="../tartJS/tart/tart.js"></script>
+    <script type="text/javascript">
+
+        /**
+         *
+         * @interface
+         */
+        var AtmCashUnitInterface = function () {};
+        AtmCashUnitInterface.prototype.extractCash = function (){};
+        AtmCashUnitInterface.prototype.triggerNextUnit = function (){};
+
+        /**
+         *
+         * @implements {AtmCashUnitInterface}
+         */
+        var Hundreds = function (){
+
+        };
+
+        /**
+         *
+         * @implements {AtmCashUnitInterface}
+         */
+        var Fifties = function (){
+
+        };
+
+        /**
+         *
+         * @implements {AtmCashUnitInterface}
+         */
+        var Twenties = function (){
+
+        };
+
+        /**
+         *
+         * @implements {AtmCashUnitInterface}
+         */
+        var Tens = function (){
+
+        };
+
+        /**
+         *
+         * @implements {AtmCashUnitInterface}
+         */
+        var Fives = function (){
+
+        };
+
+
+        /**
+         *
+         * @implements {AtmCashUnitInterface}
+         */
+        var Ones = function (){
+
+        };
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
