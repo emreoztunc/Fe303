@@ -2,7 +2,78 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title></title>
+    <title>Adapter Design Pattern</title>
+    <script type="text/javascript" src="../tartJS/third_party/jquery/jquery-1.5.2.js"></script>
+    <script type="text/javascript" src="../tartJS/third_party/goog/goog/base.js"></script>
+    <script type="text/javascript" src="../tartJS/tart/deps.js"></script>
+    <script type="text/javascript" src="../tartJS/tart/tart.js"></script>
+    <script type="text/javascript">
+
+        var TextAdapterInterface = function(){};
+        textAdapterInterface.prototype.getText = function(){};
+
+        /**
+         *
+         * @implements {TextAdapterInterface}
+         */
+        var TextFromFile = function(){
+
+        };
+
+        TextFromFile.prototype.getText = function(){
+
+        };
+
+        /**
+         *
+         * @implements {TextAdapterInterface}
+         */
+        var TextFromWeb = function(){
+
+        };
+
+        TextFromWeb.prototype.getText = function(){
+
+        };
+
+        /**
+         *
+         * @implements {TextAdapterInterface}
+         */
+        var TextFromMysql = function(){
+
+        };
+
+        TextFromMysql.prototype.getText = function(){
+
+        };
+
+        var MockFile = function(){
+
+        };
+
+        MockFile.prototype.process = function(){
+
+        };
+
+        var MockWeb = function(){
+
+        };
+
+        MockWeb.prototype.process = function(){
+
+        };
+
+        var MockMysql = function(){
+
+        };
+
+        MockMysql.prototype.process = function(){
+
+        };
+
+
+    </script>
 </head>
 <body>
 
