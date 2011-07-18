@@ -21,9 +21,11 @@
 
         };
 
-        TextFromFile.prototype.getText = function(){
-            var dataToReturn = "";
-            console.log(" ");
+        TextFromFile.prototype.getText = function(mockFile){
+            var originalText    ;
+            originalText = mockFile.process();
+            console.log("Data from user " + originalText.substring(0,7) + " is: " +
+                    originalText.substring(7,originalText.length-1));
         };
 
         /**
