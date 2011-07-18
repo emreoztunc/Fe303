@@ -18,6 +18,22 @@
         AtmCashUnitInterface.prototype.extractCash = function (){};
         AtmCashUnitInterface.prototype.importCash = function (){};
 
+        var Atm = function () {
+        };
+
+        Atm.prototype.successor = null;
+
+        Atm.prototype.drawCash = function (amount) {
+            console.log("Verilecek para miktari: " + amount);
+            this.successor.extractCash(amount);
+        };
+
+        Atm.prototype.invoiceCash = function (amount) {
+            console.log("Alinacak para miktari: " + amount);
+            this.successor.importCash(amount);
+        };
+
+        
 
     </script>
 </head>
