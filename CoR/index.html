@@ -47,6 +47,24 @@
         //AtmCashUnit.prototype.remainder = 0;
 
 
+        AtmCashUnit.prototype.extractCash = function (amount) {
+            this.remainder = amount % this.cashAmountToHandle;
+            this.count = amount - this.remainder;
+            this.count = this.count/this.cashAmountToHandle;
+
+            if(this.count !=0){
+                console.log("Musteriye " + this.count + " adet " + this.cashAmountToHandle + " liralik banknot verildi.");
+                if(this.remainder!=0){
+                    console.log(this.remainder + " lira kaldi");
+                }
+                this.count = 0;
+            }
+
+            if((this.successor != null) && (this.remainder !=0)) {
+                this.successor.extractCash(this.remainder);
+            }
+      };
+
     </script>
 </head>
 <body>
