@@ -13,32 +13,85 @@
         var students = [];
 
         var Facade = function() {
+        };
+
+        Facade.prototype.dismissClass = function(students, time) {
+            for(var i=0, length=students.length; i<length; i++){
+                students[i].dismiss(time);
+            }
+        };
+
+        Facade.prototype.gatherClass = function(students){
+            for(var i=0, length=students.length; i<length; i++){
+                students[i].dismissTime=0;
+                console.log("Student " + students[i].name + " came back to the class.");
+            }
+        };
+
+        Facade.prototype.attendanceCheck = function(theClass) {
+            for(var i=0, length=theClass.length; i<length; i++){
+                theClass[i].attendancePing();
+            }
+        };
+
+        var Teacher = function(){
 
         };
 
-        Facade.prototype.dismissClass = function() {
-
+        Teacher.prototype.dismissAndCheck = function(facade, theClass, time){
+            facade.attendanceCheck(theClass);
+            facade.dismissClass(theClass, time);
+            facade.attendanceCheck(theClass);
         };
 
-        Facade.prototype.attendancePing = function() {
-
+        Teacher.prototype.checkAndDismiss = function(facade, theClass, time){
+            facade.attendanceCheck(theClass);
+            facade.gatherClass(theClass);
+            facade.attendanceCheck(theClass);
+            facade.dismissClass(theClass, time);
+            facade.attendanceCheck(theClass);
         };
 
-
-        var Student = function() {
-
+        var Student = function(studentName) {
+            this.name = studentName;
+            this.dismissTime=0;
         };
 
         Student.prototype.dismiss = function(time){
-
+            this.dismissTime = time;
+            console.log(this.name + " will be dismissed for " + this.dismissTime + " hours.");
         };
 
-        Student.prototype.attendancePong = function() {
-
+        Student.prototype.attendancePing = function() {
+            if(this.dismissTime == 0){
+                console.log(this.name + " is here.");
+            }
+            else {
+                console.log(this.name + " is absent.");
+            }
         };
 
+        var teacher = new Teacher();
+        var facade = new Facade();
+
+        var emre = new Student("Emre");
+        var sezgi = new Student("Sezgi");
+        var armagan = new Student("Armagan");
+        var mutlu = new Student("Mutlu");
+        var osman = new Student("Osman");
+        var emrah = new Student("Emrah");
+        var melih = new Student("Melih");
+        students.push(emre);
+        students.push(sezgi);
+        students.push(armagan);
+        students.push(mutlu);
+        students.push(osman);
+        students.push(emrah);
+        students.push(melih);
 
 
+        teacher.dismissAndCheck(facade, students, 3);
+        teacher.checkAndDismiss(facade, students, 3);
     </script>
 
 </body>
