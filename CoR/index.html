@@ -93,6 +93,13 @@
         var Beslik = new AtmCashUnit(5);
         var Birlik = new AtmCashUnit(1);
 
+        Bankamatik.successor = Yuzluk;
+        Yuzluk.successor = Ellilik;
+        Ellilik.successor = Yirmilik;
+        Yirmilik.successor = Onluk;
+        Onluk.successor = Beslik;
+        Beslik.successor = Birlik;
+
     </script>
 </head>
 <body>
