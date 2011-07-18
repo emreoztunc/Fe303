@@ -36,10 +36,11 @@
 
         };
 
-        TextFromWeb.prototype.getText = function(MockWeb){
-            var dataToReturn = "";
-            console.log(" ");
-
+        TextFromWeb.prototype.getText = function(mockWeb){
+            var originalText ;
+            originalText = mockWeb.process();
+            console.log("Data from user " + originalText.substring(originalText.length-6,originalText.length) + " is: " +
+                    originalText.substring(0,originalText.length-6));
         };
 
         /**
