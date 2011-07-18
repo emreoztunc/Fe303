@@ -23,15 +23,9 @@
         Atm.prototype.successor = null;
 
         Atm.prototype.drawCash = function (amount) {
-            console.log("Verilecek para miktari: " + amount);
-            this.successor.extractCash(amount);
+            console.log("Money to draw: " + amount);
+            this.successor.drawCash(amount);
         };
-
-        Atm.prototype.invoiceCash = function (amount) {
-            console.log("Alinacak para miktari: " + amount);
-            this.successor.importCash(amount);
-        };
-
 
         /**
          *
@@ -46,64 +40,45 @@
         //AtmCashUnit.prototype.remainder = 0;
 
 
-        AtmCashUnit.prototype.extractCash = function (amount) {
+        AtmCashUnit.prototype.drawCash = function (amount) {
             this.remainder = amount % this.cashAmountToHandle;
             this.count = amount - this.remainder;
             this.count = this.count/this.cashAmountToHandle;
 
             if(this.count !=0){
-                console.log("Musteriye " + this.count + " adet " + this.cashAmountToHandle + " liralik banknot verildi.");
+                console.log(this.count + " banknotes of " + this.cashAmountToHandle + " bucks drawed.");
                 if(this.remainder!=0){
-                    console.log(this.remainder + " lira kaldi");
+                    console.log("Money left: " + this.remainder);
                 }
                 this.count = 0;
             }
 
             if((this.successor != null) && (this.remainder !=0)) {
-                this.successor.extractCash(this.remainder);
+                this.successor.drawCash(this.remainder);
             }
       };
 
-        AtmCashUnit.prototype.importCash= function(amount) {
-            this.count = (amount % this.cashAmountToHandle);
-            this.remainder = amount;
-            if((this.count == 0) && (this.successor != null)) {
-                this.successor.importCash(this.remainder);
-            }
+        var Bancomat = new Atm ();
 
-            else if((this.count!=0) && (this.successor != null)) {
-                console.log("musteriden " + this.count + " adet " + this.cashAmountToHandle + " liralik banknot alindi.");
-                this.remainder = amount - ( this.count * this.cashAmountToHandle);
-                this.successor.importCash(this.remainder);
-            }
+        var Hundred = new AtmCashUnit(100);
+        var Fifty = new AtmCashUnit(50);
+        var Twenty = new AtmCashUnit(20);
+        var Ten = new AtmCashUnit(10);
+        var Five = new AtmCashUnit(5);
+        var One = new AtmCashUnit(1);
 
-            else if ((this.count!= 0) && (this.successor == null)){
-                console.log("Para alacak yok. " + this.remainder +" kadar para verilemedi.");
-            }
-
-        };
-
-        var Bankamatik = new Atm ();
-
-        var Yuzluk = new AtmCashUnit(100);
-        var Ellilik = new AtmCashUnit(50);
-        var Yirmilik = new AtmCashUnit(20);
-        var Onluk = new AtmCashUnit(10);
-        var Beslik = new AtmCashUnit(5);
-        var Birlik = new AtmCashUnit(1);
-
-        Bankamatik.successor = Yuzluk;
-        Yuzluk.successor = Ellilik;
-        Ellilik.successor = Yirmilik;
-        Yirmilik.successor = Onluk;
-        Onluk.successor = Beslik;
-        Beslik.successor = Birlik;
+        Bancomat.successor = Hundred;
+        Hundred.successor = Fifty;
+        Fifty.successor = Twenty;
+        Twenty.successor = Ten;
+        Ten.successor = Five;
+        Five.successor = One;
 
         for (var i = 0, length = moneyArray.length; i<length; i++) {
-            Bankamatik.drawCash(moneyArray[i]);
+            Bancomat.drawCash(moneyArray[i]);
         }
 
-        Bankamatik.drawCash(2657675854);
+        Bancomat.drawCash(2657675854);
 
 
 
