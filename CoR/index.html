@@ -33,7 +33,19 @@
             this.successor.importCash(amount);
         };
 
-        
+
+        /**
+         *
+         * @implements {AtmCashUnitInterface}
+         */
+        var AtmCashUnit = function (cashAmountToHandle){
+            this.cashAmountToHandle = cashAmountToHandle;
+        };
+
+        AtmCashUnit.prototype.successor = null;
+        //AtmCashUnit.prototype.count = 0;
+        //AtmCashUnit.prototype.remainder = 0;
+
 
     </script>
 </head>
