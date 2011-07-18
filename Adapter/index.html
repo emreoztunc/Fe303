@@ -52,8 +52,10 @@
         };
 
         TextFromMysql.prototype.getText = function(mockMysql){
-            var dataToReturn = "";
-            console.log(" ");
+            var originalText ;
+            originalText = mockMysql.process();
+            console.log("Data from user " + originalText.substring(5,11) + " is: " +
+                    originalText.substring(11,originalText.length-8));
 
         };
 
