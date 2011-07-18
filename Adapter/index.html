@@ -62,7 +62,7 @@
 
         MockFile.prototype.process = function(){
             this.dataString+= tart.getUid();
-            this.dataString+= tart.loremIpsum();
+            this.dataString+= tart.string.loremIpsum();
             return this.dataString;
             this.dataString = "";
         };
@@ -74,7 +74,7 @@
         MockWeb.prototype.dataString = "";
 
         MockWeb.prototype.process = function(){
-            this.dataString+= tart.loremIpsum();
+            this.dataString+= tart.string.loremIpsum();
             this.dataString+= tart.getUid();
             return this.dataString;
             this.dataString = "";
@@ -89,11 +89,14 @@
         MockMysql.prototype.process = function(){
             this.dataString+= "mysql";
             this.dataString+= tart.getUid();
-            this.dataString+= tart.loremIpsum();
+            this.dataString+= tart.string.loremIpsum();
             return this.dataString;
             this.dataString = "";
         };
 
+        var mf = new MockFile();
+
+        console.log(mf.process());
 
     </script>
 </head>
