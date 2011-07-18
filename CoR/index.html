@@ -65,6 +65,25 @@
             }
       };
 
+        AtmCashUnit.prototype.importCash= function(amount) {
+            this.count = (amount % this.cashAmountToHandle);
+            this.remainder = amount;
+            if((this.count == 0) && (this.successor != null)) {
+                this.successor.importCash(this.remainder);
+            }
+
+            else if((this.count!=0) && (this.successor != null)) {
+                console.log("musteriden " + this.count + " adet " + this.cashAmountToHandle + " liralik banknot alindi.");
+                this.remainder = amount - ( this.count * this.cashAmountToHandle);
+                this.successor.importCash(this.remainder);
+            }
+
+            else if ((this.count!= 0) && (this.successor == null)){
+                console.log("Para alacak yok. " + this.remainder +" kadar para verilemedi.");
+            }
+
+        };
+
     </script>
 </head>
 <body>
